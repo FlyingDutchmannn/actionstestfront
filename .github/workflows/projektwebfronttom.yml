@@ -6,7 +6,7 @@ on:
       - main
 
 env:
-  DOCKER_REGISTRY: tomvd123/githubactionsfront
+  DOCKER_REGISTRY: https://hub.docker.com/repository/docker/tomvd123/githubactionsfront/
   DOCKER_IMAGE: ${{ secrets.DOCKER_USERNAME }}/todo-frontend
   BUILD_TAG: ${{ env.GITHUB_RUN_NUMBER }}
 
