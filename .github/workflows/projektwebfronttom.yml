@@ -7,7 +7,7 @@ on:
 
 env:
   DOCKER_REGISTRY: docker.io
-  DOCKER_IMAGE: FlyingDutchmannn/todo-frontend
+  DOCKER_IMAGE: ${{ secrets.DOCKER_USERNAME }}/todo-frontend
   BUILD_TAG: ${{ env.GITHUB_RUN_NUMBER }}
 
 jobs:
@@ -35,6 +35,6 @@ jobs:
         push: true
         tags: ${{ env.DOCKER_REGISTRY }}/${{ env.DOCKER_IMAGE }}:${{ env.BUILD_TAG }}
 
-secrets:
-  DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
-  DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+      env:
+        DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+        DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
